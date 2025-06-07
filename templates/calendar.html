@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Calendario{% endblock %}
 {% block content %}
-<div class="container-xxl text-white bg-dark">
+<div class="container-xxl text-white bg-dark" id="content">
     <div class="row m-2 justify-content-end">
         <div class="col-3 text-end">
             <h6 class="text-uppercase">{{ weather.description }} <br>
@@ -64,6 +64,9 @@
             </div>
         {% endfor %}
     </div>
+
+
+
 <!--    <div class="row m-2">-->
 <!--        {% for i in range(7) %}-->
 <!--        <div class="col">-->
