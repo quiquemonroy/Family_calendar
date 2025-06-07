@@ -7,7 +7,7 @@ from weather import get_weather
 
 app = Flask("__main__")
 
-
+#
 @app.route("/")
 def calendario():
     events = format_events()
