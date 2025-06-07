@@ -35,7 +35,7 @@
             </div>
         {% endfor %}
     </div>
-    <div class="row shadow mx-2" style="height: 150px;overflow: scroll;">
+    <div class="row mx-2" style="height: 150px;overflow: scroll;">
         {% for day in semanas[0] %}
             <div class="col border rounded border-2 m-1" style="">
                 {% if day.day == today %}
@@ -52,7 +52,7 @@
             </div>
         {% endfor %}
     </div>
-    <div class="row shadow m-2" style="height: 150px;overflow: scroll;">
+    <div class="row m-2" style="height: 150px;overflow: scroll;">
         {% for day in semanas[1] %}
             <div class="col border rounded border-2 m-1">
                     <h2 class="text-center">{{day.day}}</h2>
