@@ -49,7 +49,7 @@ def get_weeks():
         for i in range(1, 8):
             fila_dos.append(fila_uno[-1] + timedelta(days=i))
     elif hoy.weekday() == 5:
-        for i in range(4):
+        for i in range(5):
             fila_uno.append(hoy - timedelta(days=i + 1))
         fila_uno.reverse()
         for i in range(2):
