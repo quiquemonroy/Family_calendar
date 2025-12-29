@@ -1,61 +1,69 @@
 {% extends "base.html" %}
 {% block title %}Calendario{% endblock %}
 {% block content %}
-<div class="container-xxl text-white bg-dark" id="content">
+<div class="container-7 text-white bg-dark" id="content">
     <div class="row m-2 justify-content-end">
-        <div class="col-3 text-end">
-            <h6 class="text-uppercase">{{ weather.description }} <br>
+        <div class="col-2 text-start"> <!-- EL TIEMPO, anochecer y amanecer -->
+            <h6>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-thermometer-high" viewBox="0 0 16 16">
   <path d="M9.5 12.5a1.5 1.5 0 1 1-2-1.415V2.5a.5.5 0 0 1 1 0v8.585a1.5 1.5 0 0 1 1 1.415"/>
   <path d="M5.5 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0zM8 1a1.5 1.5 0 0 0-1.5 1.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0l-.166-.15V2.5A1.5 1.5 0 0 0 8 1"/>
-</svg>{{ weather.t_max }}º
+            </svg>
+                    {{ weather.t_max }}maxº
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-thermometer-low" viewBox="0 0 16 16">
-  <path d="M9.5 12.5a1.5 1.5 0 1 1-2-1.415V9.5a.5.5 0 0 1 1 0v1.585a1.5 1.5 0 0 1 1 1.415"/>
-  <path d="M5.5 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0zM8 1a1.5 1.5 0 0 0-1.5 1.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0l-.166-.15V2.5A1.5 1.5 0 0 0 8 1"/>
-</svg>{{ weather.t_min }}ª<br>
+      <path d="M9.5 12.5a1.5 1.5 0 1 1-2-1.415V9.5a.5.5 0 0 1 1 0v1.585a1.5 1.5 0 0 1 1 1.415"/>
+      <path d="M5.5 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0zM8 1a1.5 1.5 0 0 0-1.5 1.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0l-.166-.15V2.5A1.5 1.5 0 0 0 8 1"/>
+                </svg>
+                    {{ weather.t_min }}ºmin.<br>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sunrise-fill" viewBox="0 0 16 16">
-  <path d="M7.646 1.146a.5.5 0 0 1 .708 0l1.5 1.5a.5.5 0 0 1-.708.708L8.5 2.707V4.5a.5.5 0 0 1-1 0V2.707l-.646.647a.5.5 0 1 1-.708-.708zM2.343 4.343a.5.5 0 0 1 .707 0l1.414 1.414a.5.5 0 0 1-.707.707L2.343 5.05a.5.5 0 0 1 0-.707m11.314 0a.5.5 0 0 1 0 .707l-1.414 1.414a.5.5 0 1 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0M11.709 11.5a4 4 0 1 0-7.418 0H.5a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1h-3.79zM0 10a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2A.5.5 0 0 1 0 10m13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5"/>
-</svg> {{ weather.sunrise }}
+      <path d="M7.646 1.146a.5.5 0 0 1 .708 0l1.5 1.5a.5.5 0 0 1-.708.708L8.5 2.707V4.5a.5.5 0 0 1-1 0V2.707l-.646.647a.5.5 0 1 1-.708-.708zM2.343 4.343a.5.5 0 0 1 .707 0l1.414 1.414a.5.5 0 0 1-.707.707L2.343 5.05a.5.5 0 0 1 0-.707m11.314 0a.5.5 0 0 1 0 .707l-1.414 1.414a.5.5 0 1 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0M11.709 11.5a4 4 0 1 0-7.418 0H.5a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1h-3.79zM0 10a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2A.5.5 0 0 1 0 10m13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5"/>
+                </svg>
+                    {{ weather.sunrise }}
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sunset-fill" viewBox="0 0 16 16">
-  <path d="M7.646 4.854a.5.5 0 0 0 .708 0l1.5-1.5a.5.5 0 0 0-.708-.708l-.646.647V1.5a.5.5 0 0 0-1 0v1.793l-.646-.647a.5.5 0 1 0-.708.708zm-5.303-.51a.5.5 0 0 1 .707 0l1.414 1.413a.5.5 0 0 1-.707.707L2.343 5.05a.5.5 0 0 1 0-.707zm11.314 0a.5.5 0 0 1 0 .706l-1.414 1.414a.5.5 0 1 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zM11.709 11.5a4 4 0 1 0-7.418 0H.5a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1h-3.79zM0 10a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2A.5.5 0 0 1 0 10m13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5"/>
-</svg>{{ weather.sunset }}</h6>
+      <path d="M7.646 4.854a.5.5 0 0 0 .708 0l1.5-1.5a.5.5 0 0 0-.708-.708l-.646.647V1.5a.5.5 0 0 0-1 0v1.793l-.646-.647a.5.5 0 1 0-.708.708zm-5.303-.51a.5.5 0 0 1 .707 0l1.414 1.413a.5.5 0 0 1-.707.707L2.343 5.05a.5.5 0 0 1 0-.707zm11.314 0a.5.5 0 0 1 0 .706l-1.414 1.414a.5.5 0 1 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zM11.709 11.5a4 4 0 1 0-7.418 0H.5a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1h-3.79zM0 10a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2A.5.5 0 0 1 0 10m13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5"/>
+                </svg>
+                    {{ weather.sunset }}
+            </h6>
         </div>
-<!--        <div class="col-2 text-end" >El sol sale a las {{ weather.sunrise }}<br>y se pone a las {{ weather.sunset }}</div>-->
-        <div class="col-1 text-center"><img src="http://openweathermap.org/img/wn/{{weather.icon}}.png" alt=""></div>
-        <div class="col-1 text-end"><img class="img-fluid" style="width:50px; height:50px;" src="static/img/{{img}}.png" }} alt="un dibujo de un animal"></div>
-        <div class="col-1 color text-end" >
-            <h1>{{month}}</h1>
+        <div class="col text-start"> <!-- logo tiempo -->
+            <img src="http://openweathermap.org/img/wn/{{weather.icon}}.png" alt="">
+        </div>
+        <div class="col text-end"><img class="img-fluid" style="width:50px; height:50px;" src="static/img/{{img}}.png" }} alt="un dibujo de un animal"></div>
+        <div class="col color text-start" >
+            <h2>{{month}}</h2>
         </div>
     </div>
-    <div class="row mt-2 mx-2 mb-0 justify-content-center" >
+    <div class="row mt-2 mx-2 mb-0 justify-content-center" > <!-- días de la semana y almuerzo-->
         {% for day in week %}
             <div class="col text-center">
-                <h1>{{day.0}}</h1>
-                <p class="fs-6 fw-lighter mx-0 lh-1">{{ day.1 }}</p>
+                <h4>{{day.0}}</h4>
+                {{ day.1 }}
             </div>
         {% endfor %}
     </div>
-    <div class="row mx-2" style="height: 150px;overflow: scroll;">
+    <div class="row mx-2" style="min-height: 180px;"> <!-- dias y eventos diarios -->
         {% for day in semanas[0] %}
-            <div class="col border rounded border-2 m-1" style="">
-                {% if day.day == today %}
-                    <h2 class="border mx-5 border-4 border-danger rounded-circle text-center">{{day.day}}</h2>
-                {% else %}
-                    <h2 class="text-center">{{day.day}}</h2>
+            <div class="col border rounded border-2 m-1" style="min-height: 160px;">
+                <div class="row-2">
+                {% if day.day == today %} <!-- EL dia de hoy se marca en rojo -->
+                    <h5 class="border mx-5 border-4 border-danger rounded-circle text-center">{{day.day}}</h5>
+                {% else %} <!-- el resto no -->
+                    <h5 class="text-center">{{day.day}}</h5>
                 {%endif%}
                 {% for event in events %}
                     {% if event.day == day.day and event.month == day.month %}
-                        <p class="fs-6 fw-lighter mx-0 lh-1">{{event.time}} {{event.name}}</p>
+                            <p class="fs-6 fw-lighter mx-0 lh-1">{{event.time}} {{event.name}}</p>
                     {% endif %}
                 {% endfor %}
+                </div>
 
             </div>
         {% endfor %}
     </div>
-    <div class="row m-2" style="height: 150px;overflow: scroll;">
+    <div class="row m-2" style="min-height: 180px;">
         {% for day in semanas[1] %}
             <div class="col border rounded border-2 m-1">
-                    <h2 class="text-center">{{day.day}}</h2>
+                    <h5 class="text-center">{{day.day}}</h5>
                     {% for event in events %}
                         {% if event.day == day.day and event.month == day.month %}
                             <p class="fs-6 fw-lighter mx-0 lh-1">{{event.time}}-{{event.name}}</p>
@@ -84,6 +92,9 @@
 <!--        </div>-->
 <!--        {% endfor %}-->
 <!--    </div>-->
+
+<!--    TODO: Crear una pequeña vista de los eventos de hoy.
+        TODO: Buscar una forma de mostrar el calendario de comidas y desarrollar un modo de subirlo desde el móvil-->
 
 
 {% endblock %}

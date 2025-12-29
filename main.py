@@ -25,7 +25,7 @@ def calendario():
               "Diciembre"
               ]
 
-    WEEK = [("L","🍏"), ("M","🥛"), ("X","🍏"),( "J","🥪"), ("V","🍏"), ("S",""), ("D","")]
+    WEEK = [("Lunes","🍏"), ("Martes","🥛"), ("Miércoles","🍏"),( "Jueves","🥪"), ("Viernes","🍏"), ("Sábado",""), ("Domingo","")]
     TODAY = datetime.now().day
     MONTH = int(datetime.now().month)-1
     semanas = get_weeks()

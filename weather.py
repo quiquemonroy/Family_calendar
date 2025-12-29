@@ -11,8 +11,8 @@ def get_weather():
     data = json.loads(response.text)
     weather = {"icon": data["weather"][0]["icon"],
                "description": data["weather"][0]["description"],
-               "t_min": data["main"]["temp_min"],
-               "t_max": data["main"]["temp_max"],
+               "t_min": round(data["main"]["temp_min"]),
+               "t_max": round(data["main"]["temp_max"]),
                "sunrise": datetime.fromtimestamp(data["sys"]["sunrise"]).time().strftime("%H:%M"),
                "sunset": datetime.fromtimestamp(data["sys"]["sunset"]).strftime("%H:%M"), }
     return weather

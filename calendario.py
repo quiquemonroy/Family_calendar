@@ -2,71 +2,20 @@ import calendar
 from datetime import datetime, timedelta
 
 WEEK = ["L", "M", "X", "J", "V", "S", "D"]
-YEAR = datetime.now().year
-MONTH = datetime.now().month
-
 
 def get_weeks():
     hoy = datetime.now()
-    semanas = []
-    fila_uno = []
-    fila_dos = []
-    if hoy.weekday() == 0:
-        for i in range(7):
-            fila_uno.append(hoy + timedelta(days=i))
-        for i in range(7):
-            fila_dos.append(fila_uno[-1] + timedelta(days=i))
-    elif hoy.weekday() == 1:
-        for i in range(1):
-            fila_uno.append(hoy - timedelta(days=i + 1))
-        fila_uno.reverse()
-        for i in range(6):
-            fila_uno.append(hoy + timedelta(days=i))
-        for i in range(1, 8):
-            fila_dos.append(fila_uno[-1] + timedelta(days=i))
-    elif hoy.weekday() == 2:
-        for i in range(2):
-            fila_uno.append(hoy - timedelta(days=i + 1))
-        fila_uno.reverse()
-        for i in range(5):
-            fila_uno.append(hoy + timedelta(days=i))
-        for i in range(1, 8):
-            fila_dos.append(fila_uno[-1] + timedelta(days=i))
-    elif hoy.weekday() == 3:
-        for i in range(3):
-            fila_uno.append(hoy - timedelta(days=i + 1))
-        fila_uno.reverse()
-        for i in range(4):
-            fila_uno.append(hoy + timedelta(days=i))
-        for i in range(1, 8):
-            fila_dos.append(fila_uno[-1] + timedelta(days=i))
-    elif hoy.weekday() == 4:
-        for i in range(4):
-            fila_uno.append(hoy - timedelta(days=i + 1))
-        fila_uno.reverse()
-        for i in range(3):
-            fila_uno.append(hoy + timedelta(days=i))
-        for i in range(1, 8):
-            fila_dos.append(fila_uno[-1] + timedelta(days=i))
-    elif hoy.weekday() == 5:
-        for i in range(5):
-            fila_uno.append(hoy - timedelta(days=i + 1))
-        fila_uno.reverse()
-        for i in range(2):
-            fila_uno.append(hoy + timedelta(days=i))
-        for i in range(1, 8):
-            fila_dos.append(fila_uno[-1] + timedelta(days=i))
-    elif hoy.weekday() == 6:
-        for i in range(6):
-            fila_uno.append(hoy - timedelta(days=i + 1))
-        fila_uno.reverse()
-        for i in range(1):
-            fila_uno.append(hoy + timedelta(days=i))
-        for i in range(1, 8):
-            fila_dos.append(fila_uno[-1] + timedelta(days=i))
-    semanas.append(fila_uno)
-    semanas.append(fila_dos)
-    return semanas
+    # Encontramos el lunes de esta semana restando su número de día actual
+    lunes_actual = hoy - timedelta(days=hoy.weekday())
+
+    # Creamos una lista con los 14 días seguidos
+    todos_los_dias = [lunes_actual + timedelta(days=i) for i in range(14)]
+
+    # Partimos la lista en dos bloques de 7
+    fila_uno = todos_los_dias[:7]
+    fila_dos = todos_los_dias[7:]
+
+    return [fila_uno, fila_dos]
 
 
 if __name__ == "__main__":
