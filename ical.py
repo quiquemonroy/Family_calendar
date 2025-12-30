@@ -4,31 +4,6 @@ from datetime import datetime, timedelta, timezone
 from LOCAL import CALENDAR_URL
 
 
-# def format_events():
-#     url = CALENDAR_URL
-#     response = requests.get(url)
-#     calendar = Calendar(response.text)
-#
-#     now = datetime.now(timezone.utc)
-#     start_range = now - timedelta(days=7)
-#     end_range = now + timedelta(days=14)
-#
-#     event_list = []
-#
-#     for event in calendar.events:
-#         if event.begin and start_range <= event.begin <= end_range:
-#             evento = {
-#                 "begin": event.begin,
-#                 "day": event.begin.date().day,
-#                 "month": event.begin.date().month,
-#                 "name": event.name,
-#                 "time": event.begin.strftime("%H:%M")
-#             }
-#             event_list.append(evento)
-#
-#     event_list.sort(key=lambda x: x["begin"])
-#
-#     return event_list
 def format_events():
     url = CALENDAR_URL
     response = requests.get(url)
