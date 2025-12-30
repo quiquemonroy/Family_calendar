@@ -3,6 +3,8 @@ from datetime import datetime
 import requests
 from LOCAL import API_KEY, lat, lon
 
+# Latitud y longitud lo consigues aquí https://openweathermap.org/api/geocoding-api
+
 
 def get_weather():
     url = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API_KEY}&lang={'ES'}&units=metric"

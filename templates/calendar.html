@@ -50,9 +50,18 @@
                 {% else %} <!-- el resto no -->
                     <h5 class="text-center">{{day.day}}</h5>
                 {%endif%}
-                {% for event in events %}
-                    {% if event.day == day.day and event.month == day.month %}
-                            <p class="fs-6 fw-lighter mx-0 lh-1">{{event.time}} {{event.name}}</p>
+                {% for day_with_events in events %}
+                    {% if day_with_events == day.day %}
+                        {% for event in events[day_with_events][:2] %}
+                                 <p class="fs-6 fw-lighter mx-0 lh-1">{{event.time}} {{event.name}}</p>
+                        {%endfor%}
+                    {% endif %}
+                {% endfor %}
+                    {% for day_with_events in events %}
+                    {% if day_with_events == day.day %}
+                        {% for event in events[day_with_events][2:] %}
+                                 🔴
+                        {%endfor%}
                     {% endif %}
                 {% endfor %}
                 </div>
@@ -64,11 +73,20 @@
         {% for day in semanas[1] %}
             <div class="col border rounded border-2 m-1">
                     <h5 class="text-center">{{day.day}}</h5>
-                    {% for event in events %}
-                        {% if event.day == day.day and event.month == day.month %}
-                            <p class="fs-6 fw-lighter mx-0 lh-1">{{event.time}}-{{event.name}}</p>
-                        {% endif %}
-                    {% endfor %}
+                {% for day_with_events in events %}
+                    {% if day_with_events == day.day %}
+                        {% for event in events[day_with_events][:2] %}
+                                 <p class="fs-6 fw-lighter mx-0 lh-1">{{event.time}} {{event.name}}</p>
+                        {%endfor%}
+                    {% endif %}
+                {% endfor %}
+                {% for day_with_events in events %}
+                    {% if day_with_events == day.day %}
+                        {% for event in events[day_with_events][2:] %}
+                                 🔴
+                        {%endfor%}
+                    {% endif %}
+                {% endfor %}
             </div>
         {% endfor %}
     </div>
@@ -93,8 +111,25 @@
 <!--        {% endfor %}-->
 <!--    </div>-->
 
-<!--    TODO: Crear una pequeña vista de los eventos de hoy.
+<!--    TODO: Cambiar cómo se organizan los eventos y organizarlos por días.
         TODO: Buscar una forma de mostrar el calendario de comidas y desarrollar un modo de subirlo desde el móvil-->
+
+    <div class="row-6 m-2">
+        <div class="col-3 m-2">
+            <h1>{{today}} {{month}}</h1>
+        </div>
+        <div class="col-3 m-2 p-2">
+             {% for day_with_events in events %}
+                {% if day_with_events == today %}
+                    {% for event in events[day_with_events] %}
+                        <ul>
+                            <li>{{event.time}} <strong> {{ event.name}} </strong></li>
+                        </ul>
+                    {%endfor%}
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
 
 
 {% endblock %}

@@ -1,4 +1,3 @@
-import calendar
 from datetime import datetime, timedelta
 
 WEEK = ["L", "M", "X", "J", "V", "S", "D"]
