@@ -36,32 +36,34 @@
     <div class="row mt-2 mx-2 mb-0 justify-content-center" > <!-- días de la semana y almuerzo-->
         {% for day in week %}
             <div class="col text-center">
-                <h4>{{day.0}}</h4>
-                {{ day.1 }}
+                <h4>{{day.0}} {{ day.1 }}</h4>
+
             </div>
         {% endfor %}
     </div>
-    <div class="row mx-2" style="min-height: 180px;"> <!-- dias y eventos diarios -->
+    <div class="row mx-2" style="max-height: 150px;"> <!-- dias y eventos diarios -->
         {% for day in semanas[0] %}
-            <div class="col border rounded border-2 m-1" style="min-height: 160px;">
+            <div class="col border border-2 pb-0" style="min-height: 160px;">
                 <div class="row-2">
                 {% if day.day == today %} <!-- EL dia de hoy se marca en rojo -->
-                    <h5 class="border mx-5 border-4 border-danger rounded-circle text-center">{{day.day}}</h5>
+                    <h4 class="text-left text-danger">{{day.day}}</h4>
                 {% else %} <!-- el resto no -->
-                    <h5 class="text-center">{{day.day}}</h5>
+                    <h4  class="text-left">{{day.day}}</h4>
                 {%endif%}
                 {% for day_with_events in events %}
                     {% if day_with_events == day.day %}
                         {% for event in events[day_with_events][:2] %}
-                                 <p class="fs-6 fw-lighter mx-0 lh-1">{{event.time}} {{event.name}}</p>
+                                 <p class="fs-6 fw-lighter mx-0 lh- text-truncate d-block truncado lh-1" style="recortar-texto; " title="{{event.name}}"><strong>{{event.name}}</strong></p>
                         {%endfor%}
                     {% endif %}
                 {% endfor %}
                     {% for day_with_events in events %}
                     {% if day_with_events == day.day %}
+                    <p style="line-height: 0.2;magin-top:-5;" class="mb-0">
                         {% for event in events[day_with_events][2:] %}
-                                 🔴
+                        🔴
                         {%endfor%}
+                    </p>
                     {% endif %}
                 {% endfor %}
                 </div>
@@ -71,20 +73,22 @@
     </div>
     <div class="row m-2" style="min-height: 180px;">
         {% for day in semanas[1] %}
-            <div class="col border rounded border-2 m-1">
+            <div class="col border border-2 m" style="min-height: 160px;">
                     <h5 class="text-center">{{day.day}}</h5>
                 {% for day_with_events in events %}
                     {% if day_with_events == day.day %}
                         {% for event in events[day_with_events][:2] %}
-                                 <p class="fs-6 fw-lighter mx-0 lh-1">{{event.time}} {{event.name}}</p>
+                                 <p class="fs-6 fw-lighter mx-0 lh- text-truncate d-block truncado lh-1" style="recortar-texto; " title="{{event.name}}"><strong>{{event.name}}</strong></p>
                         {%endfor%}
                     {% endif %}
                 {% endfor %}
                 {% for day_with_events in events %}
                     {% if day_with_events == day.day %}
+                    <p style="line-height: 0.2;magin-top:-5;" class="mb-0">
                         {% for event in events[day_with_events][2:] %}
-                                 🔴
+                        🔴
                         {%endfor%}
+                    </p>
                     {% endif %}
                 {% endfor %}
             </div>

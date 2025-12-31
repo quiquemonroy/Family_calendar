@@ -6,6 +6,35 @@
     <title>{% block title %}{% endblock %}</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            /* Fuerza el corte de texto en cualquier elemento con esta clase */
+            .recortar-texto {
+            white-space: nowrap;    /* Evita que el texto salte de línea */
+            overflow: hidden;       /* Esconde lo que sobra */
+            text-overflow: ellipsis; /* Añade los "..." */
+            display: block;         /* Necesario para que el ancho se respete */
+            width: 100%;            /* Ocupa el ancho de la celda del calendario */
+        }
+                         /* Esto obliga a las columnas a respetar el ancho del 800px */
+            .row {
+                display: flex;
+                flex-wrap: nowrap; /* Evita que las columnas salten abajo */
+            }
+
+            .col {
+                flex: 1 1 0;      /* Fuerza a todas las columnas a medir lo mismo */
+                min-width: 0;     /* ¡ESTO ES LA CLAVE! Permite que el contenido se encoja */
+                overflow: hidden; /* Asegura que nada se salga */
+            }
+
+            .truncado {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: block;
+                width: 100%;
+            }
+        </style>
     {% endblock %}
 </head>
 <body class="text-white bg-dark">

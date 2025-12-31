@@ -10,7 +10,7 @@ def show_cal():
     options.add_argument("--height=480")
     driver = webdriver.Firefox(options=options)
     driver.get("http://127.0.0.1:8000")
-    driver.save_full_page_screenshot(f"static/capturas/{now.day}{now.month}{now.year}.png")
+    driver.save_full_page_screenshot(f"static/capturas/{now.now()}.png")
     # exit()
     driver.quit()
 
